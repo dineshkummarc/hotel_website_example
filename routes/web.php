@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+require __DIR__.'/users.php';
+require __DIR__.'/bookings.php';
+require __DIR__.'/rooms.php';
+require __DIR__.'/reviews.php';
+require __DIR__.'/homepage.php';

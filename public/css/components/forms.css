@@ -1,0 +1,123 @@
+.form-wrapper {
+    max-width: 800px;   
+    width: 100%;        
+    margin: 4vh auto;
+    padding: 3vh 3vw;
+    border-radius: 10px;
+    border-bottom: #000 solid 1vh;
+    background-color: #adfff7;
+    box-sizing: border-box;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+    gap: 3vh;
+    width: 100%;
+}
+
+.form-group {
+    width: 100%;          
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    gap: 0.5vh;
+}
+
+.form label {
+    display: block;
+    font-weight: bold;
+    font-size: 2.5vh;
+    text-align: center;
+    margin: 0.5vh auto;
+}
+
+.form input,
+.form select,
+.form textarea {
+    width: 80%;            
+    padding: 0.5vh 0.5vw;
+    font-size: 1.6vh;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    border-bottom: 0.5vh solid #000;
+    outline: none;
+    box-sizing: border-box;
+    margin: auto;         
+}
+
+.form input:focus,
+.form select:focus,
+.form textarea:focus {
+    border-color: #32c8f1;
+}
+
+
+.form-login-wrapper {
+    width: 80vw;
+    max-width: 800px;
+    margin: 0 auto; 
+    margin-top: 2vh;
+    margin-bottom: 2vh;         
+    padding: 3vh 3vw;
+    border-radius: 10px;
+    background-color: #adfff7;
+    box-sizing: border-box;
+    border-bottom: #000 solid 1vh;
+}
+
+.form-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3vh;
+    width: 100%;
+}
+
+.form-login-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1vh;
+}
+
+.form-login-group label {
+    font-weight: bold;
+    font-size: 2.5vh;
+    text-align: center;
+    color: #000;
+}
+
+.form-login-group input {
+    width: 80%;
+    padding: 0.5vh 0.5vw;
+    text-align: center;
+    font-size: 1.6vh;
+    background-color: transparent;
+    border: none;
+    border-bottom: 0.5vh solid #000;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.form-login-group input:focus {
+    border-color: #32c8f1;
+}
+
+.role-selector {
+    display: flex;          
+    justify-content: center; 
+    gap: 2vw;                
+    margin-top: 1vh;
+}
+
+
+.role-option {
+    display: inline-block;  
+    font-weight: bold;
+    font-size: 1.8vh;
+    cursor: pointer;       
+}

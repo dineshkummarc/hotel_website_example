@@ -1,0 +1,64 @@
+.booking-list-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    width: 100%;
+}
+
+.booking-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2vw;
+    justify-content: center;
+}
+
+.booking-card-list {
+    width: 30vw;
+    min-height: 40vh;
+    font-size: 2vh;
+    font-weight: bold;
+}
+
+.room-list-wrapper-booking {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.room-card-booking {
+    width: 60vw;
+    margin: 0.3vh auto;
+}
+
+.room-name-booking {
+    font-size: 2.5vh;
+    font-weight: bold;
+    font-style: oblique;
+}
+
+.price-booking {
+    font-size: 1.7vh;
+}
+
+.price-total-booking {
+    font-weight: bold;
+    font-size: 2vh;
+}
+
+.room-photos {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 1vw;
+    max-width: 80%;
+    flex-wrap: wrap;
+    margin-bottom: 0.5vh;
+}
+
+.room-photos img {
+    max-width: 15vw;
+    max-height: 15vh;
+    border-radius: 1vw;
+    object-fit: cover;
+}

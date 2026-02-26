@@ -1,0 +1,37 @@
+.btn-submit {
+    padding: 1.2vh 2vw;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 2vh;
+    font-weight: bold;
+    margin-top: 0.5vh;
+    margin: auto;
+}
+
+.btn-submit:hover {
+    background-color: #009688;
+    color: white;
+    border: #ffffff solid 0.2vh;
+}
+
+.btn-delete {
+   padding: 1.2vh 2vw;
+    background-color: #f56161;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 2vh;
+    font-weight: bold;
+    margin-top: 0.5vh;
+    margin: auto;
+}
+
+.btn-delete:hover {
+    background-color: #ff2a04;
+    color: white;
+    border: solid black 0.2vh;
+}

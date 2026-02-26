@@ -1,0 +1,77 @@
+.menu-homepage, .menu-homepage ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-homepage {
+    display: flex;
+    background-color: #ffffff;
+}
+
+.menu-homepage > li {
+    position: relative;
+    flex: 1;
+}
+
+.menu-homepage > li > a {
+    display: block;
+    padding: 0.8em 1.5em;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+}
+
+.menu-homepage > li:hover > a {
+    background-color:  #adfff7;
+    border-radius: 5px;
+    border-bottom: 0.3vw solid #000000;
+}
+
+.menu-homepage li ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    max-width: 100%;
+    z-index: 1000;
+}
+
+.menu-homepage li:hover > ul {
+    display: block;
+}
+
+.menu-homepage li ul li a {
+    display: block;
+    padding: 0.8em 1.5em;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.menu-homepage li ul li a:hover {
+    background-color: #adfff7;
+    border-radius: 5px;
+    border-bottom: 0.3vw solid #000000;
+}
+
+@media (max-width: 768px) {
+    .menu-homepage {
+        flex-direction: column;
+         
+    }
+
+    .menu-homepage > li {
+        flex: none;
+        width: 100%;
+    }
+
+    .menu-homepage li ul {
+        position: static; 
+    }
+}
+

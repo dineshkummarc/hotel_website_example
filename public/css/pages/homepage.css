@@ -1,0 +1,30 @@
+.homepage-room-images {
+    margin-top: 2vh;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 1vw;
+    width: 100%;
+    justify-content: center;
+}
+
+.homepage-room-images img {
+    flex: 1 1 0; 
+    max-width: 30vw;
+    max-height: 30vw;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .homepage-room-images {
+        flex-wrap: wrap;
+        gap: 1vw;
+        justify-content: center;
+    }
+
+    .homepage-room-images img {
+        max-width: 80vw;  
+        max-height: 40vh;
+    }
+}

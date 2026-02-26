@@ -1,61 +1,62 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+Hotel Booking Web Application
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Overview
 
-## About Laravel
+This project is a hotel booking web application built using **Laravel** and **MySQL**.  
+It allows users to view available rooms, make bookings, and read reviews. Admin users have additional privileges to manage rooms, users, bookings, and reviews.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Features
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Homepage displaying a booking form and recent reviews.
+- CRUD operations for Users, Rooms, Bookings, and Reviews.
+- Validation using Laravel FormRequests.
+- Exception handling for invalid actions (e.g., `RoomNotAvailableException`, `BookingException`).
+- Role-based access control with Policies and Middleware.
+- Observer pattern to send email notifications on new bookings.
+- Price calculation using the Strategy design pattern (`StandardPriceStrategy`, `SeasonalDiscountStrategy`) with a Factory (`PriceStrategyFactory`).
+- Caching implemented for frequently accessed data.
+- Modular architecture using Services, Repositories, Controllers, and Models.
+- Unit tests for main services: Booking, Users, and Rooms.
+- Responsive frontend with semantic HTML (`header`, `nav`, `main`, `footer`) and reusable partials.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Technical Details
 
-## Learning Laravel
+- Backend: Laravel 11, PHP 8.3
+- Database: MySQL with migrations, seeders, and factories
+- Testing: PHPUnit with unit tests for services
+- Frontend: Blade templates, CSS responsive design
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Structure
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- `app/Models` – Eloquent models
+- `app/Repositories` – Repository classes for database interactions
+- `app/Http/Services` – Business logic separated from controllers
+- `app/Http/Controllers` – Controllers for HTTP requests
+- `app/Http/Requests` – FormRequest classes for validation
+- `app/Observers` – Observers for events like booking creation
+- `app/Strategies` – Strategy pattern classes for dynamic pricing
+- `app/Providers` – Service providers for dependency injection
+- `resources/views` – Blade templates for frontend
+- `tests/Unit` – Unit tests for main services
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Installation
 
-## Laravel Sponsors
+1. Clone the repository:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+git clone <your-repo-url>
 
-### Premium Partners
+2. Install dependencies:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development/)**
-- **[Active Logic](https://activelogic.com)**
+composer install
 
-## Contributing
+3. Copy .env.example to .env and configure your database:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+cp .env.example .env
 
-## Code of Conduct
+4. Run migrations and seeders:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+php artisan migrate --seed
 
-## Security Vulnerabilities
+5. Serve the application:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+php artisan serve
