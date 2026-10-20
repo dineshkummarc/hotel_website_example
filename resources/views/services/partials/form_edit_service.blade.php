@@ -1,16 +1,16 @@
-<link rel="stylesheet" href="{{ asset('css/forms.css') }}">
+<link rel="stylesheet" href="{{ asset('css/components/forms.css') }}">
 
 <div class="update-form">
     <h3 class='title1'>Edit Service</h3>
 
     @if($errors->any())
-        <div class="alert error">
-            <ul>
-                @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
+    <div class="alert error">
+        <ul>
+            @foreach($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
     @endif
 
     <form action="{{ route('services.update', $service->id) }}" method="POST">

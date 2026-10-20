@@ -1,35 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
-.title1
-{
-    color: #00635A;  
-    text-shadow: 0.05vh 0.05vw black; 
-    font-style: italic; 
-    font-family: 'Lobster Two';
+.title1 {
+    color: var(--main-color);
+    text-shadow: 0.05vh 0.05vw black;
+    font-style: italic;
+    font-family: "Lobster Two", cursive;
     text-align: left;
     word-spacing: 1vw;
     letter-spacing: 0.3vw;
-    text-transform: uppercase; 
-    font-size: 6vh;
+    text-transform: uppercase;
+    font-size: 3.4rem;
 }
 
-.title2
-{
-    color: #019185;    
-    font-family: "EB Garamond", serif;
+.title2 {
+    color: var(--main-color);
+    font-family: var(--font-heading);
     text-align: center;
-    text-transform: uppercase; 
-    font-size: 2.5vh;
-    text-shadow: 1px 1px 0 rgb(226, 200, 168);
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    text-shadow: 1px 1px 0 black;
 }
 
-.title3
-{
-    color: #00978b;    
-    font-family: "EB Garamond", serif;
+.title3 {
+    color: var(--main-color);
+    font-family: var(--font-heading);
     text-align: center;
-    text-transform: uppercase; 
-    font-size: 3vh;
-    text-shadow: 1px 1px 0 rgb(226, 200, 168);
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    text-shadow: 1px 1px 0 black;
 }

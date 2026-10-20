@@ -8,44 +8,32 @@ use Illuminate\Support\Facades\Auth;
 
 class FormRequestUser extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
     public function authorize(): bool
     {
-      
-    if (Auth::user()?->role === 'admin') {
         return true;
     }
 
-    
-    $userId = $this->route('id') ?? Auth::id();
-    return Auth::id() === $userId;
-    }
-
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
-     */
     public function rules(): array
     {
-         $userId = $this->route('id') ?? null;
+        $userId = $this->route('id');
 
-        return [
-            'name'     => 'required|string|max:255',
-            'email'    => [
+        $rules = [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => [
                 'required',
                 'email',
                 Rule::unique('users', 'email')->ignore($userId),
             ],
-            'password' => 'required|min:6|confirmed',
+            'password' => [
+                $userId === null ? 'required' : 'nullable',
+                'string',
+                'min:8',
+                'confirmed',
+            ],
         ];
 
-          if (Auth::user()?->role === 'admin') {
-            $rules['role'] = 'required|in:admin,client';
-        } else {
-            $this->merge(['role' => 'client']);
+        if (Auth::user()?->role === 'admin') {
+            $rules['role'] = ['required', Rule::in(['admin', 'client'])];
         }
 
         return $rules;
@@ -54,15 +42,14 @@ class FormRequestUser extends FormRequest
     public function messages(): array
     {
         return [
-            'name.required'     => 'Name is required.',
-            'email.required'    => 'Email is required.',
-            'email.email'       => 'Email must be valid.',
-            'email.unique'      => 'Email already exists.',
+            'name.required' => 'Name is required.',
+            'email.required' => 'Email is required.',
+            'email.email' => 'Email must be valid.',
+            'email.unique' => 'Email already exists.',
             'password.required' => 'Password is required.',
-            'password.min'      => 'Password must be at least 6 characters.',
-            'password.confirmed'=> 'Password confirmation does not match.',
-            'role.required'     => 'Role is required.',
+            'password.min' => 'Password must be at least 8 characters.',
+            'password.confirmed' => 'Password confirmation does not match.',
+            'role.required' => 'Role is required.',
         ];
     }
-
 }

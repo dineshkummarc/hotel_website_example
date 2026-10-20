@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="{{ asset('css/buttons.css') }}">
+<link rel="stylesheet" href="{{ asset('css/components/buttons.css') }}">
 
 <form action="{{ route('deleteRoom') }}" method="POST" style="display:inline;">
     @csrf

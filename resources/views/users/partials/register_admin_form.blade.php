@@ -1,20 +1,20 @@
 <div class="form-login-wrapper">
-    <h3 class="card-title">New User</h3>
+    <h3 class="card-title2">New User</h3>
 
     @if($errors->any())
-        <div class="alert error">
-            <ul>
-                @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
+    <div class="alert error">
+        <ul>
+            @foreach($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
     @endif
 
     @if(session('success'))
-        <div class="alert success">
-            {{ session('success') }}
-        </div>
+    <div class="alert success">
+        {{ session('success') }}
+    </div>
     @endif
 
     <form class="form-login" action="{{ route('signInUser') }}" method="POST">
@@ -22,17 +22,17 @@
 
         <div class="form-login-group">
             <label for="name">Name:</label>
-            <input type="text" name="name" required>
+            <input type="text" name="name" value="{{ old('name') }}" required placeholder=" Insert user surname and name">
         </div>
 
         <div class="form-login-group">
             <label for="email">Email:</label>
-            <input type="email" name="email" required>
+            <input type="email" name="email" value="{{ old('email') }}" required placeholder=" Insert email">
         </div>
 
         <div class="form-login-group">
             <label for="password">Password:</label>
-            <input type="password" name="password" required>
+            <input type="password" name="password" required placeholder="Insert password">
         </div>
 
         <div class="form-login-group">
@@ -41,15 +41,15 @@
         </div>
 
         <div class="form-login-group">
-    <label class="role-label">Role:</label>
-    <div class="role-selector">
-        <input type="radio" id="client" name="role" value="client" checked>
-        <label for="client" class="role-option">Client</label>
+            <label class="role-label">Role:</label>
+            <div class="role-selector">
+                <input type="radio" id="client" name="role" value="client" checked>
+                <label for="client" class="role-option">Client</label>
 
-        <input type="radio" id="admin" name="role" value="admin">
-        <label for="admin" class="role-option">Admin</label>
-    </div>
-</div>
+                <input type="radio" id="admin" name="role" value="admin">
+                <label for="admin" class="role-option">Admin</label>
+            </div>
+        </div>
         <button class="btn-submit" type="submit">Create User</button>
     </form>
 </div>

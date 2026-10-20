@@ -6,7 +6,7 @@ use App\Repositories\ReviewRepository;
 
 class ReviewService
 {
-    protected $reviewRepository;
+    protected ReviewRepository $reviewRepository;
 
     public function __construct(ReviewRepository $reviewRepository)
     {

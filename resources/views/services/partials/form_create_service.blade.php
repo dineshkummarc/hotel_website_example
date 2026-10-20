@@ -1,23 +1,23 @@
-<link rel="stylesheet" href="{{ asset('css/forms.css') }}">
-<link rel="stylesheet" href="{{ asset('css/buttons.css') }}">
+<link rel="stylesheet" href="{{ asset('css/components/forms.css') }}">
+<link rel="stylesheet" href="{{ asset('css/components/buttons.css') }}">
 
 <div class="create-form">
     <h3>Create a New Service</h3>
 
     @if($errors->any())
-        <div class="alert error">
-            <ul>
-                @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
+    <div class="alert error">
+        <ul>
+            @foreach($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
     @endif
 
     @if(session('success'))
-        <div class="alert success">
-            {{ session('success') }}
-        </div>
+    <div class="alert success">
+        {{ session('success') }}
+    </div>
     @endif
 
     <form action="{{ route('services.create') }}" method="POST">

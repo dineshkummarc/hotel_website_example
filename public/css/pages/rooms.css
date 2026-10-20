@@ -1,6 +1,6 @@
 /*room cards*/
 
-.room-card{
+.room-card {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,27 +8,47 @@
     margin: auto;
     margin-bottom: 1vh;
     border-bottom: 1vh solid #000;
+    border-radius: 10px 10px 0 0;
     box-sizing: border-box;
     width: 100%;
     max-width: 900px;
     color: black;
-    background-color:#44E3D3
+    background-image:
+        linear-gradient(rgba(253, 253, 253, 0.6),
+            rgba(247, 247, 247, 0.7)),
+        url(../../storage/images/background/pexels-iamabdullahsheik-9915687.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    box-shadow: #000 0.1vh 0.1vw;
+}
+
+.room-card:hover {
+    background-image:
+        linear-gradient(rgba(253, 253, 253, 0.302),
+            rgba(247, 247, 247, 0.4)),
+        url(../../storage/images/background/pexels-iamabdullahsheik-9915687.jpg);
 }
 
 
 .room-name {
-    color:#ffffff ;
+    color: var(--text-color-main);
     text-shadow: #000 0.1vh 0.1vw;
-    font-size: 3vh;
+    font-size: 1.7rem;
     margin-bottom: 1vh;
     letter-spacing: 0.3vw;
 }
 
 .room-description {
-    font-size: 2vh;
+    font-size: 1.125rem;
     margin-bottom: 2vh;
     max-width: 60%;
     font-style: oblique;
+}
+
+.room-description::first-letter {
+    font-size: 1.7rem;
 }
 
 .room-info {
@@ -39,42 +59,46 @@
 
 .room-photos {
     display: flex;
-    flex-wrap:  nowrap;
+    flex-wrap: nowrap;
     justify-content: center;
     max-width: 80%;
     gap: 1vw;
-    margin-bottom: 0.5vh;        
+    margin-bottom: 0.5vh;
 }
 
 .room-photos img {
     flex: 1 1 0;
-    max-width: 15vw;  
-    max-height: 15vh;  
+    max-width: 20vw;
+    max-height: 20vh;
     width: 80%;
-    height: auto;      
+    height: auto;
     border-radius: 1vw;
-    object-fit: cover; 
+    border: #ffffff solid 2px;
+    object-fit: cover;
 }
 
+.room-photos img:hover {
+    border: var(--text-color-main) solid 2px;
+}
 
 @media (max-width: 768px) {
     .room-photos {
-    display: flex; 
-    flex-wrap: nowrap;
-    justify-content: center;
-    gap: 1vw;     
-    max-width: 100%;   
-}
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        gap: 1vw;
+        max-width: 100%;
+    }
 
 
     .room-photos img {
         flex: 1 1 0;
-        max-width: 25vw;  
+        max-width: 25vw;
         max-height: 20vh;
     }
 }
 
-.room-price{
-    font-size: 2vh;
+.room-price {
+    font-size: 1.125rem;
     font-weight: bold;
 }

@@ -1,30 +1,51 @@
+.description {
+    width: 90%;
+    margin-top: 10px;
+
+    border-bottom: white solid 2px;
+
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.9),
+            rgba(0, 0, 0, 0.9)),
+        url(../../storage/images/background/pexels-tuttosfocato-34894234.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    text-align: center;
+
+    font-size: var(--font-size-large);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
 .homepage-room-images {
-    margin-top: 2vh;
+    margin-top: var(--spacing-xl);
     box-sizing: border-box;
     display: flex;
     align-items: center;
     flex-wrap: nowrap;
-    gap: 1vw;
+    gap: var(--spacing-md);
     width: 100%;
     justify-content: center;
 }
 
 .homepage-room-images img {
-    flex: 1 1 0; 
+    flex: 1 1 0;
     max-width: 30vw;
     max-height: 30vw;
     object-fit: cover;
+    border: solid var(--border-color) var(--border-width);
 }
 
 @media (max-width: 768px) {
     .homepage-room-images {
         flex-wrap: wrap;
-        gap: 1vw;
+        gap: var(--spacing-md);
         justify-content: center;
     }
 
     .homepage-room-images img {
-        max-width: 80vw;  
+        max-width: 80vw;
         max-height: 40vh;
     }
 }

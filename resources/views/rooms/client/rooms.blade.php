@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="{{ asset('css/pages/rooms.css') }}">
+<link rel="stylesheet" href="{{ asset('css/pages/booking.css') }}">
+
 @extends('homepage.layouts.homepage')
 
 @section('title', 'Available Rooms')

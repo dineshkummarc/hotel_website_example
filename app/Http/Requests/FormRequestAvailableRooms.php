@@ -22,18 +22,18 @@ class FormRequestAvailableRooms extends FormRequest
     public function rules(): array
     {
         return [
-            'check_in'=>'required|date',
-            'check_out'=>'required|date|after:check_in',
+            'check_in' => 'required|date|after_or_equal:today',
+            'check_out' => 'required|date|after:check_in',
         ];
     }
 
-     public function messages(): array
+    public function messages(): array
     {
         return [
             'check_in.required'  => 'Check-in is required.',
+            'check_in.after_or_equal' => 'Check-in must be after or equals today',
             'check_out.required' => 'Check-out is required.',
             'check_out.after'    => 'Check-out must be after check-in.',
         ];
     }
-    
 }

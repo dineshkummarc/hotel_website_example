@@ -1,60 +1,59 @@
 <?php
+
 namespace App\Http\Services;
 
 use App\Repositories\RoomRepository;
 
-class RoomService 
+class RoomService
 {
 
-    protected $roomRepository;
+    protected RoomRepository $roomRepository;
 
-    public function __construct(RoomRepository $roomrepository) {
-        $this->roomRepository= $roomrepository;
-    }
-    
-
- public function createNewRoom(array $data)
-{
-    $images = $data['images'] ?? null;
-
-   
-    if ($images) {
-        unset($data['images']);
+    public function __construct(RoomRepository $roomrepository)
+    {
+        $this->roomRepository = $roomrepository;
     }
 
-    
-    return $this->roomRepository->create($data, $images);
-}
 
- 
+    public function createNewRoom(array $data)
+    {
+        $images = $data['images'] ?? null;
+
+
+        if ($images) {
+            unset($data['images']);
+        }
+
+
+        return $this->roomRepository->create($data, $images);
+    }
+
+
     public function showAllRooms()
     {
         return $this->roomRepository->all();
-
     }
 
-      public function getThreeImagesForHomepage()
+    public function getThreeImagesForHomepage()
     {
         return $this->roomRepository->getThreeImagesForHomepage();
     }
 
 
-public function getRoomById($id)
-{
-  return $this->roomRepository->find($id);
-}
-    
-    
-    public function deleteRoom($id) 
+    public function getRoomById($id)
     {
-        $this->roomRepository->delete($id);
-
+        return $this->roomRepository->find($id);
     }
-   
 
-   public function updateRoom($id, array $data)
-{
-    return $this->roomRepository->update($id, $data);
-}
 
+    public function deleteRoom($id)
+    {
+        return $this->roomRepository->delete($id);
+    }
+
+
+    public function updateRoom($id, array $data)
+    {
+        return $this->roomRepository->update($id, $data);
+    }
 }

@@ -8,12 +8,12 @@ use Illuminate\Auth\Access\Response;
 
 class RoomPolicy
 {
-    public function viewAny(User $user)
+    public function create(User $user)
     {
-        return true;
+        return $user->role === 'admin';
     }
 
-    public function create(User $user)
+    public function viewAny(User $user): bool
     {
         return $user->role === 'admin';
     }

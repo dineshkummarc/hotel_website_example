@@ -1,64 +1,70 @@
-.booking-list-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 2vh;
-    width: 100%;
-}
-
-.booking-cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2vw;
-    justify-content: center;
-}
-
-.booking-card-list {
-    width: 30vw;
-    min-height: 40vh;
-    font-size: 2vh;
-    font-weight: bold;
-}
-
 .room-list-wrapper-booking {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 20px;
     width: 100%;
 }
 
 .room-card-booking {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 60vw;
-    margin: 0.3vh auto;
+    box-sizing: border-box;
+    padding: 24px;
+    margin: 0;
 }
 
 .room-name-booking {
-    font-size: 2.5vh;
-    font-weight: bold;
+    font-size: var(--font-size-title);
+    font-weight: var(--font-weight-bold);
     font-style: oblique;
+    text-align: center;
 }
 
 .price-booking {
-    font-size: 1.7vh;
+    font-size: var(--font-size-small);
+    text-align: center;
 }
 
 .price-total-booking {
-    font-weight: bold;
-    font-size: 2vh;
+    font-size: var(--font-size-large);
+    font-weight: var(--font-weight-bold);
+    text-align: center;
 }
 
-.room-photos {
+.room-card-booking .room-photos {
     display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    gap: 1vw;
-    max-width: 80%;
     flex-wrap: wrap;
-    margin-bottom: 0.5vh;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    width: 70%;
+    margin: 15px 0;
 }
 
-.room-photos img {
-    max-width: 15vw;
-    max-height: 15vh;
-    border-radius: 1vw;
-    object-fit: cover;
+.room-card-booking .room-photos img {
+    display: block;
+    width: 80%;
+    max-width: 100%;
+    height: auto;
+    flex: 1 1 100%;
+    object-fit: contain;
+    border-radius: var(--border-radius-md);
+}
+
+
+.room-card-booking form {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+
+@media (max-width: 768px) {
+    .room-card-booking {
+        width: 95%;
+        padding: 16px;
+    }
 }

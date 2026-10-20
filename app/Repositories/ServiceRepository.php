@@ -15,7 +15,7 @@ class ServiceRepository
     // Get a service by ID
     public function getById($id)
     {
-        return Service::find($id);
+        return Service::findOrFail($id);
     }
 
     // Create a service

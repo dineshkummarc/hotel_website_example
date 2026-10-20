@@ -1,37 +1,36 @@
 .btn-submit {
     padding: 1.2vh 2vw;
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
-    border: none;
+    background-color: var(--main-color);
+    color: var(--text-color-main);
+    border: var(--text-color-main) solid 1px;
     border-radius: 6px;
     cursor: pointer;
-    font-size: 2vh;
-    font-weight: bold;
-    margin-top: 0.5vh;
+    font-family: var(--font-main);
+    font-size: 1.125rem;
+    font-weight: var(--font-weight-bold);
     margin: auto;
 }
 
 .btn-submit:hover {
-    background-color: #009688;
-    color: white;
-    border: #ffffff solid 0.2vh;
+    background-color: var(--secondary-color);
+    color: var(--text-color-hover);
 }
 
 .btn-delete {
-   padding: 1.2vh 2vw;
+    padding: 1.2vh 2vw;
     background-color: #f56161;
-    color: rgb(0, 0, 0);
+    color: var(--text-color);
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    font-size: 2vh;
-    font-weight: bold;
-    margin-top: 0.5vh;
+    font-family: var(--font-main);
+    font-size: 1.125rem;
+    font-weight: var(--font-weight-bold);
     margin: auto;
 }
 
 .btn-delete:hover {
     background-color: #ff2a04;
-    color: white;
-    border: solid black 0.2vh;
+    color: var(--text-color-hover);
+    border: 0.2vh solid var(--border-color);
 }

@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Hash;
 
 class UserService
 {
-    protected $userRepository;
+    protected UserRepository $userRepository;
 
     public function __construct(UserRepository $userRepository)
     {
@@ -41,7 +41,7 @@ class UserService
         return $this->userRepository->deleteUserById($id);
     }
 
-     public function getUserInfoWithBookings($userId)
+    public function getUserInfoWithBookings($userId)
     {
         return $this->userRepository->getUserWithBookings($userId);
     }

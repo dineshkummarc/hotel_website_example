@@ -11,20 +11,20 @@ class UserRepository
     public function createUser(array $data)
     {
         Cache::forget('cache_users');
-        
+
         return User::create($data);
     }
 
     public function getAllUsers()
     {
-        return Cache::remember('cache_users',300, function(){
-        return User::all();
+        return Cache::remember('cache_users', 300, function () {
+            return User::all();
         });
     }
 
     public function getUserById($id)
     {
-        return User::find($id);
+        return User::findOrFail($id);
     }
 
     public function updateUser($id, array $data)
@@ -39,7 +39,7 @@ class UserRepository
         } else {
             unset($data['password']);
         }
-        
+
         Cache::forget('cache_users');
 
         $user->update($data);
@@ -53,7 +53,7 @@ class UserRepository
         return User::destroy($id);
     }
 
-     public function getUserWithBookings($userId)
+    public function getUserWithBookings($userId)
     {
         return User::with('bookings')->find($userId);
     }

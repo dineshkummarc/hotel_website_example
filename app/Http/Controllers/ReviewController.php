@@ -6,10 +6,11 @@ use App\Http\Services\ReviewService;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\FormRequestCreateReview;
 use App\Models\Review;
+use App\Models\User;
 
 class ReviewController extends Controller
 {
-    protected $reviewService;
+    protected ReviewService $reviewService;
 
     public function __construct(ReviewService $reviewService)
     {
@@ -17,15 +18,13 @@ class ReviewController extends Controller
     }
 
     // Show all reviews for the logged-in client
-public function showAllReviewsClient()
-{
-    $reviews = $this->reviewService->getAll()->load('room');
+    public function showAllReviewsClient()
+    {
+        $reviews = $this->reviewService->getAll()->load('room');
 
-    $rooms = collect();
+        $user = Auth::user();
 
-    $user = Auth::user();
-
-    if ($user instanceof \App\Models\User) {
+        /** @var User $user */
         $rooms = $user
             ->bookings()
             ->with('room')
@@ -33,34 +32,32 @@ public function showAllReviewsClient()
             ->pluck('room')
             ->filter()
             ->unique('id');
+
+        return view(
+            'reviews.client.reviews',
+            compact('reviews', 'rooms', 'user')
+        );
     }
-
-    return view('reviews.client.reviews', compact('reviews', 'rooms','user'));
-}
-
 
     // Form to create a review
-public function formCreateReview()
-{     
-    /** @var \App\Models\User $user */
-    $user = Auth::user();
+    public function formCreateReview()
+    {
+        $user = Auth::user();
 
-    if (!$user) {
-        abort(403, 'Devi essere loggato');
+        /** @var User $user */
+        $rooms = $user
+            ->bookings()
+            ->with('room')
+            ->get()
+            ->pluck('room')
+            ->filter()
+            ->unique('id');
+
+        return view(
+            'reviews.partials.form_create_review',
+            compact('rooms')
+        );
     }
-
-    $rooms = $user
-        ->bookings()
-        ->with('room')
-        ->get()
-        ->pluck('room')
-        ->filter()
-        ->unique('id');
-
-    
-    return view('reviews.partials.form_create_review', compact('rooms'));
-}
-
 
     // Create a review
     public function createReview(FormRequestCreateReview $request)
@@ -68,27 +65,33 @@ public function formCreateReview()
         $this->authorize('create', Review::class);
 
         $validated = $request->validated();
-        
+
         $validated['user_id'] = Auth::id();
 
         $this->reviewService->create($validated);
 
-        return redirect()->back()->with('success', 'Review created successfully!');
+        return redirect()
+            ->back()
+            ->with('success', 'Review created successfully!');
     }
 
     // Delete a review
-      public function destroy($id)
+    public function destroy($id)
     {
         $review = $this->reviewService->getById($id);
 
         if (!$review) {
-            return redirect()->back()->with('fail', 'Review not found.');
+            return redirect()
+                ->back()
+                ->with('fail', 'Review not found.');
         }
 
         $this->authorize('delete', $review);
 
         $this->reviewService->delete($id);
 
-        return redirect()->back()->with('success', 'Review deleted successfully');
+        return redirect()
+            ->back()
+            ->with('success', 'Review deleted successfully');
     }
 }

@@ -7,7 +7,7 @@ use App\Http\Services\ServiceService;
 
 class ServiceController extends Controller
 {
-    protected $serviceService;
+    protected ServiceService $serviceService;
 
     public function __construct(ServiceService $serviceService)
     {

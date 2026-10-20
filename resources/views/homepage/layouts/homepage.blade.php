@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Hotel Luce')</title>
+
+    <link rel="stylesheet" href="{{ asset('css/variables.css') }}">
 
     <link rel="stylesheet" href="{{ asset('css/layout/layout.css') }}">
     <link rel="stylesheet" href="{{ asset('css/layout/menus.css') }}">
@@ -19,12 +22,12 @@
 <body class="homepage-body">
 
 
-   <header class="header">
-    <h2 class="title1">Hotel Luce ★★★</h2>
-    <img 
-    class="hotel-image"
-    src="{{ asset('storage/images/photo-1517840901100-8179e982acb7.avif') }}"
-    alt="Main photo Hotel">
+    <header class="header">
+        <h2 class="title1">Hotel Luce ★★★</h2>
+        <img
+            class="hotel-image"
+            src="{{ asset('storage/images/photo-1517840901100-8179e982acb7.avif') }}"
+            alt="Main photo Hotel">
     </header>
 
     <nav class="menu">
@@ -49,4 +52,5 @@
 
 
 </body>
+
 </html>

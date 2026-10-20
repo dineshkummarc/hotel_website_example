@@ -10,10 +10,10 @@ class ReviewRepository
     // Get all reviews
     public function getAll()
     {
-        $key='cache_reviews';   
-        
-        return Cache::remember($key, 600, function(){ 
-        return Review::with(['user', 'room'])->get();
+        $key = 'cache_reviews';
+
+        return Cache::remember($key, 600, function () {
+            return Review::with(['user', 'room'])->get();
         });
     }
 
@@ -26,16 +26,20 @@ class ReviewRepository
     // Create a new review
     public function create($data)
     {
+        $review = Review::create($data);
+
         Cache::forget('cache_reviews');
-      
-        return Review::create($data);
+
+        return $review;
     }
 
     // Delete a review
     public function delete($id)
     {
+        $deleted = Review::destroy($id);
+
         Cache::forget('cache_reviews');
 
-        return Review::destroy($id); // true/false
+        return $deleted;;
     }
 }

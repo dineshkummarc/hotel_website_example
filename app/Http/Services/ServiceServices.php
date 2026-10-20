@@ -6,7 +6,7 @@ use App\Repositories\ServiceRepository;
 
 class ServiceService
 {
-    protected $serviceRepository;
+    protected ServiceRepository $serviceRepository;
 
     public function __construct(ServiceRepository $serviceRepository)
     {

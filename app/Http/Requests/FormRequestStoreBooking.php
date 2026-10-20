@@ -21,24 +21,22 @@ class FormRequestStoreBooking extends FormRequest
      */
     public function rules(): array
     {
-              return [
-            'room_id'   => ['required', 'exists:rooms,id'],
-            'check_in'  => ['required', 'date'],
-            'check_out' => ['required', 'date', 'after:check_in'],
-            'user_id' => ['nullable', 'exists:users,id'],
+        return [
+            'room_id'   => 'required|exists:rooms,id',
+            'check_in'  => 'required|date',
+            'check_out' => 'required|date|after:check_in',
+            'user_id' => 'nullable|exists:users,id',
         ];
-        
     }
 
-     public function messages(): array
+    public function messages(): array
     {
         return [
-            'room_id' => 'Room id not found',
+            'room_id.required' => 'Room ID is required.',
+            'room_id.exists' => 'The selected room does not exist.',
             'check_in.required'  => 'Check-in is required.',
             'check_out.required' => 'Check-out is required.',
-            'check_out.after'    => 'Check-out must be after check-in.',
+            'check_out.after'  => 'Check-out must be after check-in.',
         ];
     }
-
-    
 }

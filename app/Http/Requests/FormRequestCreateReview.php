@@ -22,18 +22,19 @@ class FormRequestCreateReview extends FormRequest
     public function rules(): array
     {
         return [
-           'room_id'=>'required|exists:rooms,id',
-           'rating'=>'required|integer|min:1|max:5',
-           'comment'=>'nullable|string|max:1000',
+            'room_id' => 'required|exists:rooms,id',
+            'rating' => 'required|integer|min:1|max:5',
+            'comment' => 'nullable|string|max:1000',
         ];
     }
-    public function messages():array 
+    public function messages(): array
     {
         return [
-            'room_id'=>'Room Id required', 
-            'rating.min'=>'Rating minimum 1',
-            'rating.max'=>'Rating max 5',
-            'rating.required'=>'Rating required'
+            'room_id.required' => 'Room ID is required.',
+            'room_id.exists'   => 'The selected room does not exist.',
+            'rating.min' => 'Rating minimum 1',
+            'rating.max' => 'Rating max 5',
+            'rating.required' => 'Rating required'
         ];
     }
 }

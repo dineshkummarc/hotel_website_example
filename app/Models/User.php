@@ -23,8 +23,13 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-     public function bookings()
+    public function bookings()
     {
         return $this->hasMany(Booking::class);
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
     }
 }
